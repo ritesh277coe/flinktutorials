@@ -1,0 +1,53 @@
+plugins {
+    id 'java'
+    id 'com.github.johnrengelman.shadow' version '7.1.2'
+}
+
+apply plugin: 'java'
+
+apply plugin: 'com.github.johnrengelman.shadow'
+//apply plugin: 'checkstyle'
+apply plugin: 'eclipse'
+
+group = 'org.ritesh'
+version = '1.0-SNAPSHOT'
+ext {
+    filepath = '/Users/riteshsingh/IdeaProjects/protobufmodels/build'
+    flinkVersion = '1.17.0'
+    scalaBinaryVersion = '2.12'
+    log4jVersion = '2.12.1'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation files("${filepath}/libs/protobufmodels-1.0-SNAPSHOT.jar")
+    implementation group: 'com.google.protobuf', name: 'protobuf-java', version: '4.27.0-RC1'
+    shadow "org.apache.logging.log4j:log4j-slf4j-impl:${log4jVersion}"
+    shadow "org.apache.logging.log4j:log4j-api:${log4jVersion}"
+    shadow "org.apache.logging.log4j:log4j-core:${log4jVersion}"
+
+    shadow "org.apache.flink:flink-clients:${flinkVersion}"
+    shadow "org.apache.flink:flink-java:${flinkVersion}"
+    shadow "org.apache.flink:flink-streaming-java:${flinkVersion}"
+    shadow "org.apache.flink:flink-streaming-scala_${scalaBinaryVersion}:${flinkVersion}"
+    implementation group: 'org.apache.flink', name: 'flink-connector-kafka', version: '1.17.0'
+
+    // allows using Flink's web UI when running in the IDE:
+    shadow "org.apache.flink:flink-runtime-web:${flinkVersion}"
+
+
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+tasks.jar {
+    manifest.attributes["Main-Class"] = "org.ritesh.Main"
+}
+
+
+test {
+    useJUnitPlatform()
+}
