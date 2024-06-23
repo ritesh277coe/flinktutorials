@@ -4,5 +4,5 @@ This project shows how to package protobuf models. Then use protobuf models in d
 <br>Build project `protobufmodels`. It will generate the protobuf model jar file. 
 <br>Set the protobuf model jarfile path in build.gradle of flinkTutorial.
 
-<br>For ex: filepath = '/IdeaProjects/protobufmodels/build'
+<br>For ex: filepath = './IdeaProjects/protobufmodels/build'
 
