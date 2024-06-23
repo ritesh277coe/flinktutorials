@@ -1,5 +1,7 @@
 # flinktutorials
-Generate protobuf model from builiding protobufmodels. Building the project will generate the model jar file. Copy the path of jar file 
-and set it appropriately in flinkTutorial build.gradle filepath variable. 
-For ex: filepath = '/Users/riteshsingh/IdeaProjects/protobufmodels/build'
+This project shows how to package protobuf models. Then use protobuf models in data serialization/deserialization.
+
+<br>Build project `protobufmodels`. It will generate the protobuf model jar file. 
+<br>Set the protobuf model jarfile path in build.gradle of flinkTutorial. 
+<br>For ex: filepath = '/Users/riteshsingh/IdeaProjects/protobufmodels/build'
 
