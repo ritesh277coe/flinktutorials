@@ -12,7 +12,7 @@ apply plugin: 'eclipse'
 group = 'org.ritesh'
 version = '1.0-SNAPSHOT'
 ext {
-    filepath = '/Users/riteshsingh/IdeaProjects/protobufmodels/build'
+    filepath = './IdeaProjects/protobufmodels/build'
     flinkVersion = '1.17.0'
     scalaBinaryVersion = '2.12'
     log4jVersion = '2.12.1'
